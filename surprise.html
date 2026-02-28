@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Am Sorry</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background: linear-gradient(135deg,#1e1e2f,#3a3a6a);
+  overflow:hidden;
+  font-family:cursive;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  flex-direction:column;
+}
+
+.message{
+  font-size:22px;
+  max-width:80%;
+  opacity:0;
+  animation: fadeIn 4s forwards;
+  animation-delay:3s;
+}
+
+@keyframes fadeIn{
+  to{ opacity:1; }
+}
+
+.sorry{
+  position:absolute;
+  color:#ff4d6d;
+  font-size:18px;
+  animation: floatUp 6s linear forwards;
+}
+
+@keyframes floatUp{
+  from{
+    transform: translateY(0);
+    opacity:1;
+  }
+  to{
+    transform: translateY(-800px);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>I Am Really Sorry 💔</h1>
+
+<div class="message">
+  Mujhse galti ho gayi...  
+  Maine tumhe hurt kiya, aur uska mujhe genuinely regret hai.  
+  plese ek baar or maaf kar do kutii. 🤍
+</div>
+
+<script>
+function createSorry(){
+  const el = document.createElement("div");
+  el.className = "sorry";
+  el.innerText = "SORRY 💔";
+  el.style.left = Math.random() * window.innerWidth + "px";
+  el.style.top = window.innerHeight + "px";
+  document.body.appendChild(el);
+  el.addEventListener("animationend", () => {
+    el.remove();
+  });
+}
+setInterval(createSorry, 300);
+</script>
+
+</body>
+</html>
